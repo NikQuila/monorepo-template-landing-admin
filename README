@@ -32,7 +32,7 @@ Create a .env file in the apps/admin directory and add the following variables:
 env
 
 VITE_SUPABASE_URL=<your-supabase-url>
-VITE_SUPABASE_ANON_KEY=<your-supabase-anon-key>
+VITE_SUPABASE_KEY=<your-supabase-anon-key>
 
 Running the Applications
 Landing
