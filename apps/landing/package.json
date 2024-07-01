@@ -1,6 +1,6 @@
 {
-  "name": "pinwheel-astro",
-  "version": "2.0.0",
+  "name": "landing",
+  "version": "1.0.0",
   "description": "Astro and Tailwindcss boilerplate",
   "author": "themefisher",
   "license": "MIT",
