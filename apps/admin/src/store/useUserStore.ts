@@ -2,7 +2,7 @@
 
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { User } from 'common/types';
+import { User } from 'common/src/types';
 
 type UserProfile = {
   userProfile: null | User;
