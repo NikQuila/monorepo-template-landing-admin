@@ -42,7 +42,7 @@ export const registerWithEmailAndPassword = async (
 export const createUserProfile = async (user: any): Promise<string> => {
   try {
     const { data, error } = await supabase
-      .from('User')
+      .from('users')
       .insert([{ email: user.email, auth_id: user.id }])
       .select('id')
       .single();

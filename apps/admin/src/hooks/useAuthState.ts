@@ -1,13 +1,16 @@
-import { useEffect, useState } from 'react';
-import { Session } from '@supabase/supabase-js';
+import { useEffect } from 'react';
 import { fetchUserProfile } from 'common/src/api/users';
 import useUserStore from '../store/useUserStore';
 import { supabase } from 'common/src/supabase';
 
 const useAuthState = () => {
-  const { setUserProfile } = useUserStore();
-  const [session, setSession] = useState<Session | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
+  const {
+    setUserProfile,
+    loadingProfile,
+    setLoadingProfile,
+    setSession,
+    session,
+  } = useUserStore();
 
   useEffect(() => {
     const fetchProfile = async (userId: string) => {
@@ -18,10 +21,10 @@ const useAuthState = () => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (session) {
         setSession(session);
-        fetchProfile(session.user.id).finally(() => setLoading(false));
+        fetchProfile(session.user.id).finally(() => setLoadingProfile(false));
       } else {
         console.log('No session found');
-        setLoading(false);
+        setLoadingProfile(false);
         setSession(null);
       }
     });
@@ -31,10 +34,10 @@ const useAuthState = () => {
     } = supabase.auth.onAuthStateChange((_event, session) => {
       if (session) {
         setSession(session);
-        fetchProfile(session.user.id).finally(() => setLoading(false));
+        fetchProfile(session.user.id).finally(() => setLoadingProfile(false));
       } else {
         console.log('No session found');
-        setLoading(false);
+        setLoadingProfile(false);
         setSession(null);
       }
     });
@@ -42,7 +45,7 @@ const useAuthState = () => {
     return () => subscription.unsubscribe();
   }, [setUserProfile]);
 
-  return { session, loading };
+  return { session, loadingProfile };
 };
 
 export default useAuthState;
