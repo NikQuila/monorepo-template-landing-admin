@@ -6,14 +6,14 @@ import {
   type ListboxProps,
   type ListboxSectionProps,
   type Selection,
-} from '@nextui-org/react';
+} from "@heroui/react";
 import React from 'react';
 import {
   Listbox,
   Tooltip,
   ListboxItem,
   ListboxSection,
-} from '@nextui-org/react';
+} from "@heroui/react";
 import { Icon } from '@iconify/react';
 
 import { cn } from 'common/src/utils/cn';

@@ -8,7 +8,7 @@ import {
   ScrollShadow,
   Spacer,
   useDisclosure,
-} from '@nextui-org/react';
+} from "@heroui/react";
 import { Icon } from '@iconify/react';
 import Sidebar from './SidebarTypes';
 import useUserStore from '../../../store/useUserStore';

@@ -5,7 +5,7 @@ import {
   ScrollShadow,
   Spacer,
   Tooltip,
-} from '@nextui-org/react';
+} from "@heroui/react";
 import { Icon } from '@iconify/react';
 
 import Sidebar from './SidebarTypes';
